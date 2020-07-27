@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "angular-crud-firebase"
+    }
+  },
+  "defaultProject": "angular-crud-firebase",
+  "cli": {
+    "analytics": "e626e3cc-fb9c-490b-8fdf-a799dd0a5a9d"
+  }
 }

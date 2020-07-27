@@ -1,0 +1,25 @@
+<div class="card">
+    <div class="card-body">
+        <h6 class="text-center">List of products</h6>
+        <table class="table table-sm table:hover">
+            <tbody>
+                <!--
+                    Se recorre con un ngFor para listarlos
+                    ----------------------------------------
+                    el ngFor funciona asi
+                    para cada producto(product) de la lista de productos(productList)
+                -->
+                <tr *ngFor="let product of productList">
+                    <td>{{product.name}} </td>
+                    <td>{{product.category}} </td>
+                    <td>{{product.location}} </td>
+                    <td>{{product.price}} </td>
+                    <!--Se crea una funcion click para editar -->
+                    <td><button class="btn btn-success"><i class="fas fa-edit"(click)="onEdit(product)"></i>Edit</button></td>
+                    <!--Se crea una funcion click para eliminar -->
+                    <td><button class="btn btn-danger"><i class="fas fa-trash-alt"(click)="onDelete(product.$key)"></i>Delete</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

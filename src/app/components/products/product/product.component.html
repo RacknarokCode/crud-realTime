@@ -1,0 +1,56 @@
+
+<div class="card">
+    <div class="card-body">
+        <!--Se envian los datos mediante el evento (ngSubmit)="onSubmit" 
+        onSubmit es la funcion que va manejar el form y recibe la info de todo el form-->
+
+        <!--Cuando se ejecute el evento onSubmit se va pasar el formulario a traves de la variable productForm-->
+        <form #productForm="ngForm" (ngSubmit)="onSubmit(productForm) " >
+            <!--
+                el input type hidden sirve para saber si se esta agregando o editando.
+                -----------------------------------------------------------------------
+                cuando seleccionemos un producto hace que se llene un input oculto para poder editarlo.
+            -->
+            <input type="hidden" name="$key" #$key="ngModel" [(ngModel)]="productService.selectedProduct.$key">
+            <div class="form-group">
+                <input type="text" 
+                class="form-control"
+                 name="name"
+                #name="ngModel"
+                 [(ngModel)]="productService.selectedProduct.name"
+                placeholder="Agrega un nombre">
+            </div>
+            <div class="form-group">
+                <input type="text" 
+                class="form-control"
+                 name="category"
+                #category="ngModel"
+                 [(ngModel)]="productService.selectedProduct.category"
+                placeholder="Agrega una categoria">
+            </div>
+            <div class="form-group">
+                <input type="text" 
+                class="form-control"
+                 name="location"
+                #location="ngModel" [(ngModel)]="productService.selectedProduct.location"
+                placeholder="Agrega una localizacion">
+            </div>
+            <div class="form-group">
+                <input type="text" 
+                class="form-control"
+                 name="price"
+                #price="ngModel" [(ngModel)]="productService.selectedProduct.price"
+                placeholder="Agrega un precio">
+            </div>
+            <div class="form-group">
+                <button class="btn btn-primary" type="submit">
+                    <i class="fas fa-plus-circle"></i>Add products
+                </button>
+                <button class="btn btn-danger" type="reset" (click)="resetForm(productForm)">
+                    <i class="fas fa-sync-alt"></i>Reset
+                </button>
+            </div>
+        </form>
+
+    </div>
+</div>
